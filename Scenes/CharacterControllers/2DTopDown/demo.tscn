@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxm42hseafrdw"]
+
+[ext_resource type="PackedScene" uid="uid://qku5yagghu8l" path="res://Scenes/CharacterControllers/2DTopDown/player.tscn" id="1_ldkiu"]
+[ext_resource type="Script" path="res://Scripts/Tools/InstantCollisionPolygon/collision_builder.gd" id="2_a51fv"]
+
+[node name="Demo" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ldkiu")]
+motion_mode = 1
+aim_at_mouse = true
+aim_in_moving_direction = false
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+polygon = PackedVector2Array(16, 0, 0, -16, -8, 0, 0, 16)
+
+[node name="CollisionBuilder" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(88, -184, 128, 72, 440, 72, 368, -200)
+script = ExtResource("2_a51fv")

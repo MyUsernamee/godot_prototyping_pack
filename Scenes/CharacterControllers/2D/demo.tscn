@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfmfbwpuq2eo2"]
+
+[ext_resource type="Script" path="res://Scripts/Tools/InstantCollisionPolygon/collision_builder.gd" id="2_xlg4g"]
+[ext_resource type="PackedScene" uid="uid://bemh0vo2lo0sl" path="res://Scenes/CharacterControllers/2D/player.tscn" id="2_yfbhf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xdum7"]
+size = Vector2(16, 16)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_yfbhf")]
+position = Vector2(208, 0)
+floor_constant_speed = true
+floor_snap_length = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("PlaceholderTexture2D_xdum7")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="CollisionBuilder" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 64, 64, 320, 64, 320, 128, 0, 128)
+script = ExtResource("2_xlg4g")

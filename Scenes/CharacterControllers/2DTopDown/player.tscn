@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://qku5yagghu8l"]
+
+[ext_resource type="Script" path="res://Scenes/CharacterControllers/2DTopDown/player.gd" id="1_syhd8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0ytb"]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q56ac"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_syhd8")
+speed = null
+aim_at_mouse = null
+aim_in_moving_direction = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y0ytb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q56ac")
+animation = &"run"
